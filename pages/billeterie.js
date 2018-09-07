@@ -9,8 +9,8 @@ class BilleteriePage extends React.Component {
   render () {
     return (
       <Layout name='billeterie-page has-bg-star'>
-        <Meta title={config.tickets.title} description={config.tickets.description} />
         <section className='section'>
+          <Meta title={config.tickets.title} description={config.tickets.description} />
           <div className='container'>
             <TicketContent />
           </div>
