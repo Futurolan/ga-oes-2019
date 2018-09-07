@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import ActiveLink from '../ActiveLink'
 
 function TicketMenu ({ data: { loading, error, node } }) {
-  console.log(node)
   if (error) {
     console.log(error)
     return null
