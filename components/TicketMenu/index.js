@@ -10,7 +10,7 @@ function TicketMenu ({ data: { loading, error, node } }) {
     return null
   }
 
-  if (node.url) {
+  if (node && node.url) {
     return <div className='navbar-item ga-ticket-menu is-uppercase has-text-weight-bold'>
       <ActiveLink label='Billeterie' className='has-text-white' path='/billeterie' />
     </div>
