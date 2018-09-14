@@ -3,7 +3,7 @@ import Layout from 'components/Layout'
 import '../styles/styles.scss'
 import TicketContent from '../components/TicketContent'
 import Meta from '../components/Meta'
-import config from '../lib/config'
+import config from '../config/config'
 
 class BilleteriePage extends React.Component {
   render () {
