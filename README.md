@@ -10,11 +10,16 @@ It's build on fun technologies like:
 npm install 
 ```
 
-## Dev 
+## Dev
+With a local backoffice  
 ```
 npm dev
 ```
-
+Use the prod DB
+```
+BACKEND_API_URL=https://backoffice.gamers-assembly.com  EDITION=1 npm dev
+```
+### 
 ## ARGS
 - BASE_URL : https://test.gamers-assembly.com 
 - BACKEND_API_URL: https://backoffice.gamers-assembly.com
