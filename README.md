@@ -1,4 +1,4 @@
-# Gamers Assemby Halloween Edition 2018 Front
+# Gamers Assemby 2018 Front
 This repository contain the Gamers Assembly Halloween Edition 2018 website frontend.
 
 It's build on fun technologies like:
@@ -19,6 +19,7 @@ Use the prod DB
 ```
 BACKEND_API_URL=https://backoffice.gamers-assembly.com  EDITION=1 npm dev
 ```
+
 ### 
 ## ARGS
 - BASE_URL : https://test.gamers-assembly.com 
