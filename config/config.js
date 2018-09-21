@@ -6,7 +6,7 @@ let config = {
     hero: {
       title: 'Gamers Assembly',
       subtitle: 'Dev Front',
-      background: '/static/img/bg-orange-area.jpg'
+      background: '/static/img/bg-banner-al2018.jpg'
     }
   },
   news: {
