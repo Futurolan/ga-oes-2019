@@ -1,7 +1,8 @@
 let config = {
   title: 'Gamers Assembly : Dev Front',
+  logo: `${process.env.BASE_URL}/static/img/logo-orange-100x100.png`,
   description: 'Retrouvez la Gamers Assembly très prochainement',
-  image: `${process.env.BASE_URL}/static/img/logo-orange-200x200.png`,
+  metaImage: `${process.env.BASE_URL}/static/img/logo-orange-200x200.png`,
   home: {
     hero: {
       title: 'Gamers Assembly',
