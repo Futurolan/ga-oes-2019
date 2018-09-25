@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import NewsCard from '..//NewsCard'
 import PropTypes from 'prop-types'
 import { Timeline } from 'react-twitter-widgets'
+import config from '../../config/config'
 
 function HomeNewsList ({
   data: { loading, error, nodeQuery }
@@ -51,7 +52,7 @@ function HomeNewsList ({
               <Timeline
                 dataSource={{
                   sourceType: 'profile',
-                  screenName: 'GamersAssembly',
+                  screenName: config.home.twitterAccount,
                   noHeader: true
                 }}
                 options={{

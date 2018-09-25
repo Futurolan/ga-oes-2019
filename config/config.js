@@ -7,32 +7,52 @@ let config = {
     hero: {
       title: 'Gamers Assembly',
       subtitle: 'Dev Front',
-      background: '/static/img/bg-banner-al2018.jpg'
-    }
+      background: '/static/img/bg-blue-area.jpg'
+    },
+    banner: '/static/img/bg-banner-al2018.jpg',
+    twitterAccount: 'GamersAssembly'
   },
   news: {
+    active: true,
     title: 'Actualités',
     description: 'Retrouvez toutes les actualités de la Gamers Assembly'
   },
   recruit: {
+    active: true,
     title: 'Recrutement',
-    description: 'Devenir bénévole pour la GAMERS ASSEMBLY, c\'est par ici !!!'
+    description: 'Devenir bénévole pour la GAMERS ASSEMBLY, c\'est par ici !!!',
+    formUrl: 'https://goo.gl/forms/84pHQfSp50RcuUel2'
   },
   partners: {
+    active: true,
     title: 'Partenaires',
     description: 'Retrouvez la liste de tous nos partenaires'
   },
   tournaments: {
+    active: true,
     title: 'Tournois',
     description: 'Tous les tournois de la Gamers Assembly'
   },
-  infos: {
+  info: {
+    active: true,
     title: 'Informations pratiques',
     description: 'Toutes les informations sur cet évènement'
   },
   tickets: {
     title: 'Billeterie',
     description: 'Achetez vos places pour la Gamers Assembly'
+  },
+  contact: {
+    active: true,
+    pageId: 6
+  },
+  press: {
+    active: true,
+    pageId: 7
+  },
+  legals: {
+    active: true,
+    pageId: 8
   },
   social: {
     twitter: 'https://twitter.com/GamersAssembly',
