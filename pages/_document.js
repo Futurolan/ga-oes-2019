@@ -19,7 +19,6 @@ export default class MyDocument extends Document {
           <meta name='msapplication-config' content='/static/icons/browserconfig.xml' />
           <meta name='theme-color' content='#ffffff' />
           <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
-          <link rel='stylesheet' href='/_next/static/style.css' />
         </Head>
         <body>
           <Main />
