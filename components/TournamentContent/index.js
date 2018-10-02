@@ -177,6 +177,7 @@ export const tournament = gql`
         }
         reservedSlot:fieldTournamentReservedSlot
         size:fieldTournamentSize
+        toornamentId:fieldTournamentToornamentId
       }
     }
   }
