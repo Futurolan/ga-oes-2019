@@ -153,21 +153,23 @@ export const tournament = gql`
         }
         game:fieldTournamentGame{
           node:entity{
-            pegi:fieldGamePegi
-            editor:fieldGameEditor
-            type:fieldGameType
-            image:fieldGameImage{
-              mobile:derivative(style:CROP_5_1_705X141){
-                url
-              }
-              desktop:derivative(style:CROP_5_1_960X192){
-                url
-              }
-              widescreen:derivative(style:CROP_5_1_1155X231){
-                url
-              }
-              fullhd:derivative(style:CROP_5_1_1345X269){
-                url
+            ...on NodeGame{
+              pegi:fieldGamePegi
+              editor:fieldGameEditor
+              type:fieldGameType
+              image:fieldGameImage{
+                mobile:derivative(style:CROP_5_1_705X141){
+                  url
+                }
+                desktop:derivative(style:CROP_5_1_960X192){
+                  url
+                }
+                widescreen:derivative(style:CROP_5_1_1155X231){
+                  url
+                }
+                fullhd:derivative(style:CROP_5_1_1345X269){
+                  url
+                }
               }
             }
           }
