@@ -3,6 +3,7 @@ let config = {
   logo: `${process.env.BASE_URL}/static/img/logo-orange-100x100.png`,
   description: 'Retrouvez la Gamers Assembly très prochainement',
   metaImage: `${process.env.BASE_URL}/static/img/logo-orange-200x200.png`,
+  gaTrackingId: 'UA-7594737-17',
   home: {
     hero: {
       title: 'Gamers Assembly',
