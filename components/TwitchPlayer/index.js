@@ -27,7 +27,7 @@ class TwitchPlayer extends React.Component {
 
   render () {
     if (this.props.active && this.state.animationEnded) {
-      return <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active?'enable':'disable'}`} style={{ background: `url('${this.props.img}) no-repeat center center` }}>
+      return <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active ? 'enable' : 'disable'}`} style={{ background: `url('${this.props.img}) no-repeat center center` }}>
         <iframe
           src={`https://player.twitch.tv/?channel=${this.props.channel}`}
           frameBorder='none'
@@ -37,7 +37,7 @@ class TwitchPlayer extends React.Component {
           allowFullScreen />
       </div>
     } else {
-      return <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active?'enable':'disable'}`} style={{ background: `url('${this.props.img}) no-repeat center center` }}>
+      return <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active ? 'enable' : 'disable'}`} style={{ background: `url('${this.props.img}) no-repeat center center` }}>
 
         <p>
           <b>{this.props.channel}</b>

@@ -49,7 +49,7 @@ class TwitchCarousel extends React.Component {
         <div className='next' onClick={this.handleNextClick}><i className='fas fa-angle-right' /></div>
         <div className='previous' onClick={this.handlePreviousClick}><i className='fas fa-angle-left' /></div>
       </div>
-     
+
     </div>
   }
 }
