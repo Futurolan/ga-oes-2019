@@ -20,7 +20,9 @@ class TwitchPlayer extends React.Component {
       }
     } else {
       if (prevProps.active !== this.props.active) {
-        this.setState({ animationEnded: false })
+        setTimeout(() => {
+          this.setState({ animationEnded: false })
+        }, 10)
       }
     }
   }
