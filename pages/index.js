@@ -10,7 +10,6 @@ import Hero from '../components/Hero'
 
 import '../styles/styles.scss'
 import TwitchCarousel from '../components/TwitchCarousel'
-import TwitchPlayer from '../components/TwitchPlayer'
 
 class HomePage extends React.Component {
   render () {
@@ -18,13 +17,7 @@ class HomePage extends React.Component {
       <Layout name='home-page'>
         <div>
           <Meta title='Accueil' />
-          <TwitchCarousel >
-            <TwitchPlayer alt='w_lapin' active={false} img='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-640x360.jpg' channel='w_lapin' />
-            <TwitchPlayer alt='w_lapin' active={false} img='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-640x360.jpg' channel='w_lapin' />
-            <TwitchPlayer alt='w_lapin' active={false} img='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-640x360.jpg' channel='w_lapin' />
-            <TwitchPlayer alt='w_lapin' active={false} img='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-640x360.jpg' channel='w_lapin' />
-            <TwitchPlayer alt='w_lapin' active={false} img='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-640x360.jpg' channel='w_lapin' />
-          </TwitchCarousel>
+          <TwitchCarousel channelList={['w_lapin', 'sco', 'shroud', 'drdisrespectlive', 'lestream', 'gotaga', 'blitzstream']} />
           {config.home.hero && <Hero title={config.home.hero.title} subtitle={config.home.hero.subtitle} imgUrl={config.home.hero.background} />}
           {config.home.banner && <Banner imgUrl={config.home.banner} />}
           <HomeInfoBlocks />

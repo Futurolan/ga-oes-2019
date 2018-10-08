@@ -1,0 +1,11 @@
+.ga-twitch-player{
+  &.disable{
+    cursor:pointer;
+  }
+  display:block;
+  width:640px;
+  height: 360px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 5px black;
+}

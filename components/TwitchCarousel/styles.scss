@@ -1,3 +1,68 @@
 .ga-twitch-carousel{
-  height:600px;
+  .next,.previous{
+    font-size:5rem;
+    position:absolute;
+    top:125px;
+
+  }
+  .next{
+    right:0;
+  }
+  .previous{
+    left:0;
+  }
+  .ga-twitch-carousel-content {
+    height: 360px;
+    margin:2rem;
+    position:relative;
+    .ga-twitch-carousel-player-item {
+      position: absolute;
+      transition: all 450ms ease 0s;
+      opacity:0;
+
+      &.item-0 {
+        left: calc(5% - 60px);
+        transform: scale(0.5);
+        opacity:0;
+      }
+      &.item-1 {
+        left: calc(5% - 60px);
+        z-index: 1;
+        transform: scale(0.5);
+        opacity:1;
+      }
+      &.item-2 {
+        left: calc(25% - 190px);
+        z-index: 2;
+        transform: scale(0.7);
+        opacity:1;
+
+      }
+      &.item-3 {
+        left: calc(50% - 320px);
+        z-index: 3;
+        transform: scale(1);
+        opacity:1;
+
+      }
+      &.item-4 {
+        left: calc(75% - 448px);
+        z-index: 2;
+        transform: scale(0.7);
+        opacity:1;
+
+      }
+      &.item-5 {
+        left: calc(95% - 580px);
+        z-index: 1;
+        transform: scale(0.5);
+        opacity:1;
+      }
+      &.item-6 {
+        transform: scale(0.5);
+        left: calc(95% - 580px);
+        opacity:0;
+      }
+    }
+  }
 }
