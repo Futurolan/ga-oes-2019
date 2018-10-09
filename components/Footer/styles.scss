@@ -8,13 +8,11 @@
      a:last-child:after{
        content: ''
      }
-   }
-   .ga-footer-socials{
-     justify-content: center;
-     a{
-       margin:0.5rem;
 
-     }
+   }
+   .ga-footer-social-networks-links{
+     justify-content: center;
+     display: flex;
    }
  }
 }

@@ -8,6 +8,7 @@ import './styles.scss'
 import TicketMenu from '../TicketMenu'
 
 import config from '../../config/config'
+import SocialNetworksLinks from '../SocialNetworksLinks'
 
 class Header extends React.Component {
   constructor (props) {
@@ -52,11 +53,14 @@ class Header extends React.Component {
             {config.partners.active && <div className='navbar-item is-uppercase has-text-weight-bold'>
               <ActiveLink label={config.partners.title} className='has-text-white' path='/partenaires' />
             </div>}
-            {config.mainPartner && <div className='navbar-end'>
-              <a href={config.mainPartner.url} target='_blank'>
+            <div className='navbar-end'>
+              {config.mainPartner && <a href={config.mainPartner.url} target='_blank'>
                 <img src={config.mainPartner.logo} />
-              </a>
-            </div>}
+              </a>}
+              {config.mainPartner === undefined && config.social && <div className='navbar-item'>
+                <SocialNetworksLinks />
+              </div>}
+            </div>
           </div>
         </nav>
       </header>

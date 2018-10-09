@@ -4,6 +4,7 @@ import ActiveLink from '../ActiveLink'
 
 import './styles.scss'
 import config from '../../config/config'
+import SocialNetworksLinks from '../SocialNetworksLinks'
 
 class Footer extends React.Component {
   render () {
@@ -17,24 +18,7 @@ class Footer extends React.Component {
             {config.recruit.active && <ActiveLink className='has-text-white' label='Recrutement' path='/recrutement' />}
 
           </div>
-          {config.social && <div className='content ga-footer-socials has-text-centered'>
-            {config.social.facebook && <a className='control has-text-white' target='_blank' href={config.social.facebook}>
-              <i className='fab fa-facebook' />
-            </a>}
-            {config.social.twitter && <a className='control has-text-white' target='_blank' href={config.social.twitter}>
-              <i className='fab fa-twitter' />
-            </a>}
-            {config.social.flickr && <a className='control has-text-white' target='_blank' href={config.social.flickr}>
-              <i className='fab fa-flickr' />
-            </a>}
-            {config.social.twitch && <a className='control has-text-white' target='_blank' href={config.social.twitch}>
-              <i className='fab fa-twitch' />
-            </a>}
-            {config.social.youtube && <a className='control has-text-white' target='_blank' href={config.social.youtube}>
-              <i className='fab fa-youtube' />
-            </a>}
-          </div>}
-
+          <SocialNetworksLinks />
         </div>
       </footer>
     )
