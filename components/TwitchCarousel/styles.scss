@@ -3,7 +3,10 @@
     font-size:5rem;
     position:absolute;
     top:125px;
-
+    cursor: pointer;
+    &:hover{
+      color:#333;
+    }
   }
   .next{
     right:0;

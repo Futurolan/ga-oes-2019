@@ -41,7 +41,7 @@ class TwitchPlayer extends React.Component {
     } else {
       return <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active ? 'enable' : 'disable'}`} style={{ background: `url('${this.props.img}) no-repeat center center` }}>
 
-        <p>
+        <p className='channel-name'>
           <b>{this.props.channel}</b>
         </p>
       </div>
