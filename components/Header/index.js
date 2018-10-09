@@ -52,27 +52,11 @@ class Header extends React.Component {
             {config.partners.active && <div className='navbar-item is-uppercase has-text-weight-bold'>
               <ActiveLink label={config.partners.title} className='has-text-white' path='/partenaires' />
             </div>}
-            <div className='navbar-end'>
-              <div className='navbar-item'>
-                {config.social && <div className='field is-grouped'>
-                  {config.social.facebook && <a className='control has-text-white' target='_blank' href={config.social.facebook}>
-                    <i className='fab fa-facebook' />
-                  </a>}
-                  {config.social.twitter && <a className='control has-text-white' target='_blank' href={config.social.twitter}>
-                    <i className='fab fa-twitter' />
-                  </a>}
-                  {config.social.flickr && <a className='control has-text-white' target='_blank' href={config.social.flickr}>
-                    <i className='fab fa-flickr' />
-                  </a>}
-                  {config.social.twitch && <a className='control has-text-white' target='_blank' href={config.social.twitch}>
-                    <i className='fab fa-twitch' />
-                  </a>}
-                  {config.social.youtube && <a className='control has-text-white' target='_blank' href={config.social.youtube}>
-                    <i className='fab fa-youtube' />
-                  </a>}
-                </div>}
-              </div>
-            </div>
+            {config.mainPartner && <div className='navbar-end'>
+              <a href={config.mainPartner.url} target='_blank'>
+                <img src={config.mainPartner.logo} />
+              </a>
+            </div>}
           </div>
         </nav>
       </header>
