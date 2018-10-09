@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from 'components/Layout'
-import '../styles/styles.scss'
-import TicketContent from '../components/TicketContent'
-import Meta from '../components/Meta'
+import TicketContent from 'components/TicketContent'
+import Meta from 'components/Meta'
 import config from '../config/config'
+
+import '../styles/styles.scss'
 
 class BilletteriePage extends React.Component {
   render () {

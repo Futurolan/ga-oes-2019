@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import './styles.scss'
@@ -47,8 +48,18 @@ class TwitchCarousel extends React.Component {
         {this.buildList()}
         <div className='next' onClick={this.handleNextClick}><i className='fas fa-angle-right' /></div>
         <div className='previous' onClick={this.handlePreviousClick}><i className='fas fa-angle-left' /></div>
+
+      </div>
+      <div className='ga-twitch-carousel-button has-text-centered'>
+        <Link href='streams'>
+          <a className='button is-primary'>
+          Voir tous les streams
+          </a>
+        </Link>
       </div>
 
+      
+      
     </div>
   }
 }

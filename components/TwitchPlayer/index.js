@@ -34,8 +34,8 @@ class TwitchPlayer extends React.Component {
           src={`https://player.twitch.tv/?channel=${this.props.channel}`}
           frameBorder='none'
           scrolling='no'
-          width='640px'
-          height='360px'
+          width='100%'
+          height='100%'
           allowFullScreen />
       </div>
     } else {
