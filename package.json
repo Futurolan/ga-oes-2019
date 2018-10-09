@@ -28,7 +28,6 @@
     "next": "^7.0.1",
     "node-sass": "^4.9.3",
     "postcss-discard-comments": "^4.0.1",
-    "postcss-discard-duplicates": "^4.0.2",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",

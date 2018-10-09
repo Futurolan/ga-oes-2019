@@ -57,9 +57,6 @@ class TwitchCarousel extends React.Component {
           </a>
         </Link>
       </div>
-
-      
-      
     </div>
   }
 }

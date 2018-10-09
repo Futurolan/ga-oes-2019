@@ -1,3 +1,4 @@
+@import '../../node_modules/bulma/sass/utilities/_all';
 .ga-twitch-player{
   &.disable{
     cursor:pointer;
@@ -11,6 +12,8 @@
   transform: scale(1);
   transition: all 450ms ease 0s;
   color:#fff;
+  background-color:#000!important;
+  background-size:contain!important;
 
   .channel-name{
     padding:0.5rem 1rem;
@@ -18,8 +21,11 @@
   &.disable:hover{
     transform: scale(1.1);
   }
-  //@include tablet {
-  //  border-color:red
-  //}
+  @include tablet-only{
+    width:100%;
+  }
+  @include  mobile{
+    width:100%;
+  }
 
 }
