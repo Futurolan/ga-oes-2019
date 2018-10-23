@@ -13,7 +13,7 @@ const sitemap = sm.createSitemap({
   hostname: process.env.BASE_URL,
   cacheTime: 600000,
   urls: [
-    { url: '/', changefreq: 'weekly', priority: 1 },
+    { url: '/', changefreq: 'weekly', priority: 1 }
   ]
 })
 
