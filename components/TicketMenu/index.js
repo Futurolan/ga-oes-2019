@@ -11,7 +11,7 @@ function TicketMenu ({ data: { loading, error, node } }) {
     return null
   }
 
-  if (node && node.url && config.tickets.active) {
+  if (node && node.url) {
     return <div className='navbar-item ga-ticket-menu is-uppercase has-text-weight-bold'>
       <ActiveLink label={config.tickets.title} className='has-text-white' path='/billetterie' />
     </div>

@@ -13,7 +13,7 @@ function TicketContent ({ data: { loading, error, node } }) {
       !!!</div>
   }
 
-  if (node && node.url && node.weezeventId && config.tickets.active) {
+  if (node && node.url && node.weezeventId) {
     return <div className='ga-ticket-content'>
       <h1 className='title title-line has-text-centered'><span>{config.tickets.title}</span></h1>
       {node.minor && <div className='box content'>
