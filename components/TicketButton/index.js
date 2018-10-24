@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import config from '../../config/config'
 
 function TicketButton ({ data: { loading, error, node } }) {
   if (error) {
@@ -10,7 +11,7 @@ function TicketButton ({ data: { loading, error, node } }) {
     return null
   }
 
-  if (node.url) {
+  if (node.url && config.tickets.active) {
     return <div className='panel ga-ticket-button'>
       <div className='button is-primary is-fullwidth is-large'>
         <Link href='/billetterie'>

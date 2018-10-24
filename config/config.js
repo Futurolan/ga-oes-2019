@@ -44,6 +44,7 @@ let config = {
     description: 'Toutes les informations sur cet évènement'
   },
   tickets: {
+    active: true,
     title: 'Billetterie',
     description: 'Achetez vos places pour la Gamers Assembly'
   },
