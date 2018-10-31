@@ -1,0 +1,16 @@
+.ga-twitch-list{
+  .is-online{
+
+    width:20px;
+    height:20px;
+    background-color:green;
+    border-radius:100%;
+  }
+  .is-offline{
+
+    width:20px;
+    height:20px;
+    background-color:darkred;
+    border-radius:100%;
+  }
+}
