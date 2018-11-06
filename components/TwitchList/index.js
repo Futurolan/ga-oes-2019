@@ -1,8 +1,25 @@
 import React from 'react'
-
+import io from 'socket.io-client'
 import './styles.scss'
 
 class TwitchList extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { socket: null }
+  }
+
+  componentDidMount () {
+    // connect to WS server and listen event
+    const socket = io('http://localhost:8000')
+    socket.on('channelName', (message) => { console.log(message) })
+    this.setState({ socket })
+  }
+
+  // close socket connection
+  componentWillUnmount () {
+    this.state.socket.close()
+  }
+
   render () {
     return (
       <section className='ga-twitch-list section' >
