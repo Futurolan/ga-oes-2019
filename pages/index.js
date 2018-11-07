@@ -7,7 +7,7 @@ import Meta from 'components/Meta'
 import Banner from 'components/Banner'
 import Hero from 'components/Hero'
 
-import config from '../config/config'
+import config from 'config/config'
 
 class HomePage extends React.Component {
   render () {

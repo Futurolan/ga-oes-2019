@@ -4,7 +4,7 @@ import Layout from 'components/Layout'
 import TicketContent from 'components/TicketContent'
 import Meta from 'components/Meta'
 
-import config from '../config/config'
+import config from 'config/config'
 
 class BilletteriePage extends React.Component {
   render () {

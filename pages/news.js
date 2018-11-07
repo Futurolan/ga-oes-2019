@@ -5,7 +5,7 @@ import Layout from 'components/Layout'
 import NewsList from 'components/NewsList'
 import Meta from 'components/Meta'
 
-import config from '../config/config'
+import config from 'config/config'
 
 class NewsPage extends React.Component {
   render () {
