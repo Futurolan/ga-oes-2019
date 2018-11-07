@@ -3,7 +3,7 @@ let config = {
   logo: `/static/img/logo-orange-100x100.png`,
   description: 'Retrouvez la Gamers Assembly très prochainement',
   metaImage: `${process.env.BASE_URL}/static/img/logo-orange-200x200.png`,
-  gaTrackingId: 'UA-7594737-17',
+  gaTrackingId: 'UA-0000000-0',
   mainPartner: {
     logo: '/static/img/charente-maritime.png',
     url: 'https://bmagic.fr'
