@@ -2,7 +2,7 @@ FROM node:alpine
 
 EXPOSE 3000
 
-ARG EDITION_ID=1
+ARG EDITION_ID=484
 ARG BACKEND_API_URL=https://backoffice.gamers-assembly.net
 ARG BACKEND_LOCAL_API_URL=http://drupal
 ARG BASE_URL=https://testfe.gamers-assembly.net
