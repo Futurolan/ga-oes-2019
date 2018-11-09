@@ -5,13 +5,15 @@ import './styles.scss'
 class TwitchList extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { socket: null }
+    this.state = { socket: null, streams: {} }
   }
 
   componentDidMount () {
     // connect to WS server and listen event
     const socket = io('http://localhost:8000')
-    socket.on('channelName', (message) => { console.log(message) })
+    socket.on('streamsTwitch1', (streams) => {
+      this.setState({ streams: streams })
+    })
     this.setState({ socket })
   }
 
@@ -22,76 +24,48 @@ class TwitchList extends React.Component {
 
   render () {
     return (
-      <section className='ga-twitch-list section' >
-        <div className='container'>
-          <div className='columns'>
-            <div className='column is-8'>
-              <div className='box'>
-              Player ici
-              </div>
-            </div>
-            <div className='column is-4'>
-              <div className='box'>
-                <div className='media'>
-                  <div className='media-left'>
-                    <figure className='image '>
+      <div className='ga-twitch-list' >
+        {Object.keys(this.state.streams).length > 0 && <div className='panel '>
 
-                      <img src='https://static-cdn.jtvnw.net/previews-ttv/live_user_w_lapin-160x90.jpg' />
-                    </figure>
-                  </div>
-                  <div className='media-content'>
-                    <div className='content'>
-                      <p>
-                    SC2 - w_lapin test baba
-                      </p>
-                    </div>
-                  </div>
-                  <div className='media-right'>
-                    <div className='is-online' />
-                  </div>
-                </div>
-                <div className='media'>
-                  <div className='media-left'>
-                    <figure className='image '>
+          <div className='panel-heading has-background-primary has-text-white'><i className='fab fa-twitch' />&nbsp;Streams</div>
+          <div className='panel-block has-background-white'>
+            <div className='columns is-multiline'>
 
-                      <img src='https://static-cdn.jtvnw.net/previews-ttv/live_user_sco-160x90.jpg' />
-                    </figure>
+              {Object.keys(this.state.streams).map((key, i) => {
+                if (this.state.streams[key].online) {
+                  return <div className='thumbnail column is-4-tablet is-4-desktop is-3-widescreen ' key={i}>
+                    <a title={this.state.streams[key].title} href={`https://www.twitch.tv/${key}`} target='_blank'>
+                      <div className='image'>
+                        <img src={`https://static-cdn.jtvnw.net/previews-ttv/live_user_${key}-640x360.jpg?cache=${new Date().getMinutes()}`} />
+                        <div className='is-online' />
+                        <div className='name has-text-white has-background-dark'> {this.state.streams[key].display_name}&nbsp;|&nbsp;
+                          <i className='fas fa-user' />&nbsp;{this.state.streams[key].viewer_count}</div>
+                        <div className='status has-text-white has-background-dark'>
+                          <span>{this.state.streams[key].status}</span>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                  <div className='media-content'>
-                    <div className='content'>
-                      <p>
-                    World of Warcraft - SCO
-                      </p>
-                    </div>
+                } else return null
+              })}
+              {Object.keys(this.state.streams).map((key, i) => {
+                if (!this.state.streams[key].online) {
+                  return <div className='thumbnail column is-4-tablet is-4-desktop is-3-widescreen ' key={i}>
+                    <a href={`https://www.twitch.tv/${key}`} target='_blank'>
+                      <div className='image'>
+                        <img src={this.state.streams[key].offline_image_url} />
+                        <div className='is-offline' />
+                        <div className='name has-text-white has-background-dark'> {this.state.streams[key].display_name}</div>
+                      </div>
+                    </a>
                   </div>
-                  <div className='media-right'>
-                    <div className='is-offline' />
-                  </div>
-                </div>
-                <div className='media'>
-                  <div className='media-left'>
-                    <figure className='image '>
-
-                      <img src='https://static-cdn.jtvnw.net/previews-ttv/live_user_drdisrespectlive-160x90.jpg' />
-                    </figure>
-                  </div>
-                  <div className='media-content'>
-                    <div className='content'>
-                      <p>
-                    PUBG - drdisrespectlive
-                      </p>
-                    </div>
-                  </div>
-                  <div className='media-right'>
-                    <div className='is-online' />
-                  </div>
-                </div>
-              </div>
-
+                } else return null
+              })}
             </div>
           </div>
-        </div>
-      </section>
+        </div>}
+
+      </div>
     )
   }
 }

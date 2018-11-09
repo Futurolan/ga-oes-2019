@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
+import io from 'socket.io-client'
 
 import './styles.scss'
 import TwitchPlayer from '../TwitchPlayer'
@@ -8,19 +8,36 @@ import TwitchPlayer from '../TwitchPlayer'
 class TwitchCarousel extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { current: 0, items: [] }
+    this.state = { current: -3, items: [], channelList: [] }
     this.handleNextClick = this.handleNextClick.bind(this)
     this.handlePreviousClick = this.handlePreviousClick.bind(this)
     this.handleItemClick = this.handleItemClick.bind(this)
+  }
+
+  componentDidMount () {
+    // connect to WS server and listen event
+    const socket = io('http://localhost:8000')
+    socket.on('streamsTwitch1', (streams) => {
+      let streamsOnline = {}
+      for (let streamId in streams) {
+        if (streams[streamId].front && streams[streamId].online) { streamsOnline[streamId] = streams[streamId] }
+      }
+
+      const channelList = Object.keys(streamsOnline)
+      if (channelList.length > 0) {
+        this.setState({ channelList: channelList })
+        socket.close()
+      }
+    })
   }
 
   buildList () {
     let channelList = []
     for (let i = 0; i < 7; i++) {
       if (this.state.current >= 0) {
-        channelList.push(this.props.channelList[(i + this.state.current) % this.props.channelList.length])
+        channelList.push(this.state.channelList[(i + this.state.current) % this.state.channelList.length])
       } else {
-        channelList.push(this.props.channelList[(this.props.channelList.length + (this.state.current % this.props.channelList.length) + i) % this.props.channelList.length])
+        channelList.push(this.state.channelList[(this.state.channelList.length + (this.state.current % this.state.channelList.length) + i) % this.state.channelList.length])
       }
     }
     return channelList.map((channel, index) => {
@@ -43,25 +60,25 @@ class TwitchCarousel extends React.Component {
     this.setState({ current: current })
   }
   render () {
-    return <div className='ga-twitch-carousel' >
-      <div className='ga-twitch-carousel-content'>
-        {this.buildList()}
-        <div className='next' onClick={this.handleNextClick}><i className='fas fa-angle-right' /></div>
-        <div className='previous' onClick={this.handlePreviousClick}><i className='fas fa-angle-left' /></div>
-
+    if (this.state.channelList.length > 0) {
+      return <div className='ga-twitch-carousel'>
+        <div className={`ga-twitch-carousel-content ${this.state.channelList.length < 5 ? 'is-single' : ''}`}>
+          {this.buildList()}
+          {this.state.channelList.length >= 2 && <div className='next' onClick={this.handleNextClick}><i className='fas fa-angle-right' /></div>}
+          {this.state.channelList.length >= 2 && <div className='previous' onClick={this.handlePreviousClick}><i className='fas fa-angle-left' /></div>}
+        </div>
+        <div className='ga-twitch-carousel-button has-text-centered'>
+          <Link href='live'>
+            <a className='button is-primary is-medium'>
+              Voir la page live
+            </a>
+          </Link>
+        </div>
       </div>
-      <div className='ga-twitch-carousel-button has-text-centered'>
-        <Link href='streams'>
-          <a className='button is-primary'>
-          Voir tous les streams
-          </a>
-        </Link>
-      </div>
-    </div>
+    } else {
+      return null
+    }
   }
-}
-TwitchCarousel.propTypes = {
-  channelList: PropTypes.array
 }
 
 export default TwitchCarousel
