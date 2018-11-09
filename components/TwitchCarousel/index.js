@@ -17,7 +17,7 @@ class TwitchCarousel extends React.Component {
   componentDidMount () {
     // connect to WS server and listen event
     const socket = io(process.env.SOCKET_URL)
-    socket.on('streamsTwitch1', (streams) => {
+    socket.on(`streamsTwitch${process.env.EDITION_ID}`, (streams) => {
       let streamsOnline = {}
       for (let streamId in streams) {
         if (streams[streamId].front && streams[streamId].online) { streamsOnline[streamId] = streams[streamId] }
