@@ -16,9 +16,9 @@ class HomePage extends React.Component {
       <Layout name='home-page'>
         <div>
           <Meta title='Accueil' />
-          <TwitchCarouselActivator />
           {config.home.hero && <Hero title={config.home.hero.title} subtitle={config.home.hero.subtitle} imgUrl={config.home.hero.background} />}
           {config.home.banner && <Banner imgUrl={config.home.banner} />}
+          <TwitchCarouselActivator />
           <HomeInfoBlocks />
           <HomeNewsList />
         </div>

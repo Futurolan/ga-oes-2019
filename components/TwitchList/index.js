@@ -28,7 +28,7 @@ class TwitchList extends React.Component {
         {Object.keys(this.state.streams).length > 0 && <div className='panel '>
 
           <div className='panel-heading has-background-primary has-text-white'><i className='fab fa-twitch' />&nbsp;Streams</div>
-          <div className='panel-block has-background-white'>
+          <div className='panel-container has-background-white'>
             <div className='columns is-multiline'>
 
               {Object.keys(this.state.streams).map((key, i) => {
