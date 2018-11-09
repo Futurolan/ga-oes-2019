@@ -10,7 +10,7 @@ class TwitchList extends React.Component {
 
   componentDidMount () {
     // connect to WS server and listen event
-    const socket = io('http://localhost:8000')
+    const socket = io(process.env.SOCKET_URL)
     socket.on('streamsTwitch1', (streams) => {
       this.setState({ streams: streams })
     })
