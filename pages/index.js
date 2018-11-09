@@ -8,9 +8,7 @@ import Banner from 'components/Banner'
 import Hero from 'components/Hero'
 import TwitchCarouselActivator from 'components/TwitchCarouselActivator'
 
-import config from '../config/config'
-
-import '../styles/styles.scss'
+import config from 'config/config'
 
 class HomePage extends React.Component {
   render () {
