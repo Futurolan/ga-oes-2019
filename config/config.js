@@ -44,7 +44,6 @@ let config = {
     description: 'Toutes les informations sur cet évènement'
   },
   live: {
-    active: true,
     title: 'Live',
     description: 'Tous les streams et résultats en direct'
   },
