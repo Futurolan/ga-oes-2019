@@ -10,7 +10,7 @@ const TournamentCard = (props) => (
   <div className='ga-tournament-card card has-ribbon is-shadowless'>
     <div className='ribbon  is-size-6 has-text-white'><Platform platform={props.platform} /> </div>
 
-    <Link as={`/tournament/${props.nid}`} href={`/tournament-single?nid=${props.nid}`}>
+    <Link as={props.url ? props.url : `/tournois-single?nid=${props.nid}`} href={{ pathname: '/tournois-single', query: { nid: props.nid } }}>
       <div>
         <div className='card-image'>
           <figure className='image is-2by1'>
@@ -38,6 +38,7 @@ const TournamentCard = (props) => (
 TournamentCard.propTypes = {
   nid: PropTypes.number,
   title: PropTypes.string,
+  url: PropTypes.string,
   imgFullhdUrl: PropTypes.string,
   imgWidescreenUrl: PropTypes.string,
   imgDesktopUrl: PropTypes.string,

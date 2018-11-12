@@ -19,6 +19,7 @@ function TournamentList ({
             <TournamentCard
               nid={tournament.nid}
               title={tournament.title}
+              url={tournament.url ? tournament.url.path : null}
               imgMobileUrl={tournament.image ? tournament.image.mobile.url : tournament.game.node.image.mobile.url}
               imgDesktopUrl={tournament.image ? tournament.image.desktop.url : tournament.game.node.image.desktop.url}
               imgWidescreenUrl={tournament.image ? tournament.image.widescreen.url : tournament.game.node.image.widescreen.url}
@@ -54,6 +55,9 @@ export const tournaments = gql`
         reservedSlot:fieldTournamentReservedSlot
         size:fieldTournamentSize
         platform:fieldTournamentPlatform
+        url: entityUrl {
+          path
+        }
         image:fieldTournamentImage{
           mobile:derivative(style:CROP_2_1_720X360){
             url

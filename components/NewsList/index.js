@@ -20,6 +20,7 @@ function NewsList ({
               nid={news.nid}
               created={news.created}
               title={news.title}
+              url={news.url ? news.url.path : null}
               imgMobileUrl={news.image.mobile.url}
               imgDesktopUrl={news.image.desktop.url}
               imgWidescreenUrl={news.image.widescreen.url}
@@ -63,6 +64,9 @@ query post($skip:Int!){
         nid,
         created,
         title,
+        url: entityUrl {
+          path
+        }
         image:fieldNewsImage{
           mobile:derivative(style:CROP_2_1_720X360){
             url
