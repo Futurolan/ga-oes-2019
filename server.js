@@ -27,19 +27,44 @@ if (config.press.active) sitemap.add({ url: '/espace-presse', changefreq: 'yearl
 if (config.legals.active) sitemap.add({ url: '/mentions-legales', changefreq: 'yearly', priority: 0.5 })
 if (config.recruit.active) sitemap.add({ url: '/recrutement', changefreq: 'yearly', priority: 0.5 })
 
-const query = `
-{
-  nodeQuery(filter: {conditions: [{field: "type", value: ["news","tournament"]}, {field: "status", value: ["1"]}]}, limit: 9999) {
-    entities {
-      id: entityId
-      type: entityBundle
-      lastmod: entityChanged
-      url: entityUrl {
-        path
-      }
+const newsQuery = `
+news:nodeQuery(filter:{
+  groups: [{
+    conjunction: OR,
+    conditions: [
+      {field: "field_news_editions", operator: IS_NULL},
+      {field: "field_news_editions", value: ["${process.env.EDITION_ID}"]}
+    ]
+  }],
+  conditions:[
+    {field:"type",value:["news"],operator:EQUAL},
+    {field:"status",value:["1"]}
+  ]}, limit: 9999) {
+  entities {
+    id: entityId
+    lastmod: entityChanged
+    url: entityUrl {
+      path
     }
   }
-}`
+}
+`
+
+const tournamentsQuery = `
+tournaments:nodeQuery(filter:{
+  conditions:[
+    {field: "field_tournament_edition", value: ["${process.env.EDITION_ID}"]}
+    {field:"type",value:["tournament"],operator:EQUAL},
+    {field:"status",value:["1"]}
+  ]}, limit: 9999) {
+  entities {
+    id: entityId
+    url: entityUrl {
+      path
+    }
+  }
+}
+`
 
 app.prepare()
   .then(() => {
@@ -54,20 +79,30 @@ app.prepare()
     })
 
     server.get('/sitemap.xml', function (req, res) {
-      request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(query)}`, function (error, response, body) {
+      request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${newsQuery}${tournamentsQuery}}`)}`, function (error, response, body) {
         const result = JSON.parse(body)
         if (error) {
           console.error(error)
           next()
         } else {
-          for (const index in result.data.nodeQuery.entities) {
-            const entity = result.data.nodeQuery.entities[index]
+          for (const index in result.data.news.entities) {
+            const entity = result.data.news.entities[index]
             if (entity.url && entity.url.path) {
               sitemap.add({
                 url: `${entity.url.path}`,
-                changefreq: entity.type === 'tournament' ? 'monthly' : 'weekly',
-                priority: entity.type === 'tournament' ? 0.9 : 0.5,
+                changefreq: 'weekly',
+                priority: 0.7,
                 lastmodISO: entity.lastmod
+              })
+            }
+          }
+          for (const index in result.data.tournaments.entities) {
+            const entity = result.data.tournaments.entities[index]
+            if (entity.url && entity.url.path) {
+              sitemap.add({
+                url: `${entity.url.path}`,
+                changefreq: 'monthly',
+                priority: 0.8
               })
             }
           }
@@ -91,7 +126,21 @@ app.prepare()
       if (!isNaN(req.params.nid)) {
         return app.render(req, res, '/tournois-single', { nid: Number(req.params.nid) })
       } else {
-        return __transformToId(req, res)
+        request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${tournamentsQuery}}`)}`, function (error, response, body) {
+          if (error) {
+            console.error(error)
+            next()
+          } else {
+            const result = JSON.parse(body)
+            for (const index in result.data.tournaments.entities) {
+              const entity = result.data.tournaments.entities[index]
+              if (entity.url.path === req.url) {
+                return app.render(req, res, `/tournois-single`, { nid: Number(entity.id) })
+              }
+            }
+            return handle(req, res)
+          }
+        })
       }
     })
 
@@ -99,7 +148,21 @@ app.prepare()
       if (!isNaN(req.params.nid)) {
         return app.render(req, res, '/news-single', { nid: Number(req.params.nid) })
       } else {
-        return __transformToId(req, res)
+        request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${newsQuery}}`)}`, function (error, response, body) {
+          if (error) {
+            console.error(error)
+            next()
+          } else {
+            const result = JSON.parse(body)
+            for (const index in result.data.news.entities) {
+              const entity = result.data.news.entities[index]
+              if (entity.url.path === req.url) {
+                return app.render(req, res, `/news-single`, { nid: Number(entity.id) })
+              }
+            }
+            return handle(req, res)
+          }
+        })
       }
     })
 
@@ -112,22 +175,3 @@ app.prepare()
       console.log(`> Ready on http://localhost:${port}`)
     })
   })
-
-function __transformToId (req, res) {
-  request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(query)}`, function (error, response, body) {
-    if (error) {
-      console.error(error)
-      next()
-    } else {
-      const result = JSON.parse(body)
-      for (const index in result.data.nodeQuery.entities) {
-        const entity = result.data.nodeQuery.entities[index]
-        const type = entity.type === 'news' ? 'news' : 'tournois'
-        if (entity.url.path === req.url) {
-          return app.render(req, res, `/${type}-single`, { nid: Number(entity.id) })
-        }
-      }
-      return handle(req, res)
-    }
-  })
-}
