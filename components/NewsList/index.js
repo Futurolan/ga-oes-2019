@@ -1,8 +1,12 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import NewsCard from '../NewsCard'
 import PropTypes from 'prop-types'
+import getConfig from 'next/config'
+
+import NewsCard from 'components/NewsCard'
+
+const { publicRuntimeConfig } = getConfig()
 
 function NewsList ({
   data: { loading, error, nodeQuery }, loadMoreNews
@@ -14,7 +18,7 @@ function NewsList ({
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length > 0) {
     return <div className='ga-news-list'>
       <div className='columns is-multiline is-6  is-variable'>
-        {nodeQuery.entities.map((news, index) => (
+        {nodeQuery.entities.map((news) => (
           <div className='column is-one-third' key={news.nid}>
             <NewsCard
               nid={news.nid}
@@ -48,7 +52,7 @@ query post($skip:Int!){
       conjunction: OR,
       conditions: [
         {field: "field_news_editions", operator: IS_NULL},
-        {field: "field_news_editions", value: ["${process.env.EDITION_ID}"]}
+        {field: "field_news_editions", value: ["${publicRuntimeConfig.EDITION_ID}"]}
       ]
     }],
     conditions:[

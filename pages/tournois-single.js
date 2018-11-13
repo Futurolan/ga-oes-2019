@@ -24,7 +24,7 @@ class TournoisSinglePage extends React.Component {
 }
 
 TournoisSinglePage.propTypes = {
-  nid: PropTypes.number
+  nid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default TournoisSinglePage

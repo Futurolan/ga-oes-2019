@@ -23,7 +23,7 @@ class NewsSinglePage extends React.Component {
   }
 }
 NewsSinglePage.propTypes = {
-  nid: PropTypes.number
+  nid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default NewsSinglePage

@@ -79,7 +79,7 @@ app.prepare()
     })
 
     server.get('/sitemap.xml', function (req, res) {
-      request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${newsQuery}${tournamentsQuery}}`)}`, function (error, response, body) {
+      request(`${process.env.BACKEND_LOCAL_API_URL}/graphql?query=${encodeURI(`{${newsQuery}${tournamentsQuery}}`)}`, function (error, response, body) {
         const result = JSON.parse(body)
         if (error) {
           console.error(error)
@@ -119,14 +119,14 @@ app.prepare()
 
     // Legacy to remove after a moment
     server.get('/tournament/:nid', (req, res) => {
-      return app.render(req, res, '/tournois-single', { nid: Number(req.params.nid) })
+      return app.render(req, res, '/tournois-single', { nid: req.params.nid })
     })
 
     server.get('/tournois/:nid', (req, res) => {
       if (!isNaN(req.params.nid)) {
-        return app.render(req, res, '/tournois-single', { nid: Number(req.params.nid) })
+        return app.render(req, res, '/tournois-single', { nid: req.params.nid })
       } else {
-        request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${tournamentsQuery}}`)}`, function (error, response, body) {
+        request(`${process.env.BACKEND_LOCAL_API_URL}/graphql?query=${encodeURI(`{${tournamentsQuery}}`)}`, function (error, response, body) {
           if (error) {
             console.error(error)
             next()
@@ -135,7 +135,7 @@ app.prepare()
             for (const index in result.data.tournaments.entities) {
               const entity = result.data.tournaments.entities[index]
               if (entity.url.path === req.url) {
-                return app.render(req, res, `/tournois-single`, { nid: Number(entity.id) })
+                return app.render(req, res, `/tournois-single`, { nid: entity.id })
               }
             }
             return handle(req, res)
@@ -146,9 +146,9 @@ app.prepare()
 
     server.get('/news/:nid', (req, res) => {
       if (!isNaN(req.params.nid)) {
-        return app.render(req, res, '/news-single', { nid: Number(req.params.nid) })
+        return app.render(req, res, '/news-single', { nid: req.params.nid })
       } else {
-        request(`${process.env.BACKEND_API_URL}/graphql?query=${encodeURI(`{${newsQuery}}`)}`, function (error, response, body) {
+        request(`${process.env.BACKEND_LOCAL_API_URL}/graphql?query=${encodeURI(`{${newsQuery}}`)}`, function (error, response, body) {
           if (error) {
             console.error(error)
             next()
@@ -157,7 +157,7 @@ app.prepare()
             for (const index in result.data.news.entities) {
               const entity = result.data.news.entities[index]
               if (entity.url.path === req.url) {
-                return app.render(req, res, `/news-single`, { nid: Number(entity.id) })
+                return app.render(req, res, `/news-single`, { nid: entity.id })
               }
             }
             return handle(req, res)

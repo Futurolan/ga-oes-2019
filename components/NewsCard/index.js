@@ -32,7 +32,7 @@ const NewsCard = (props) => (
 NewsCard.propTypes = {
   nid: PropTypes.number,
   title: PropTypes.string,
-  url: PropTypes.url,
+  url: PropTypes.string,
   imgFullhdUrl: PropTypes.string,
   imgWidescreenUrl: PropTypes.string,
   imgDesktopUrl: PropTypes.string,

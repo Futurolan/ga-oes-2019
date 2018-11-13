@@ -2,10 +2,15 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import Link from 'next/link'
 import gql from 'graphql-tag'
-import NewsCard from '..//NewsCard'
 import PropTypes from 'prop-types'
 import { Timeline } from 'react-twitter-widgets'
+import getConfig from 'next/config'
+
+import NewsCard from 'components/NewsCard'
+
 import config from 'config/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 function HomeNewsList ({
   data: { loading, error, nodeQuery }
@@ -44,12 +49,10 @@ function HomeNewsList ({
                   </div>
                 ))}
               </div>
-              <Link href='/news' ><a className='button is-primary is-medium' >Voir plus d'actualités</a></Link>
-
+              <Link href={'/news'} ><a className='button is-primary is-medium' >Voir plus d'actualités</a></Link>
             </div>
             <div className='column is-5-desktop is-12-tablet'>
               <h2 className='title title-line has-text-centered is-size-5 is-uppercase'><span>Twitter</span></h2>
-
               <Timeline
                 dataSource={{
                   sourceType: 'profile',
@@ -83,7 +86,7 @@ export const news = gql`
       conjunction: OR,
       conditions: [
         {field: "field_news_editions", operator: IS_NULL},
-        {field: "field_news_editions", value: ["${process.env.EDITION_ID}"]}
+        {field: "field_news_editions", value: ["${publicRuntimeConfig.EDITION_ID}"]}
       ]
     }],
     conditions:[
