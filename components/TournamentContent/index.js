@@ -47,7 +47,7 @@ function TournamentContent ({ changeBg, data: { loading, error, node } }) {
 
       <div className='columns'>
         <div className='column is-8'>
-          <div className='content' >
+          <div className='box content' >
             <div dangerouslySetInnerHTML={{ __html: node.description.value }} />
           </div>
 
