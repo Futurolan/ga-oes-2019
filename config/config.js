@@ -15,7 +15,8 @@ let config = {
       background: '/static/img/bg-blue-area.jpg'
     },
     banner: '/static/img/bg-banner-al2018.jpg',
-    twitterAccount: 'GamersAssembly'
+    twitterAccount: 'GamersAssembly',
+    partners: true
   },
   news: {
     active: true,
