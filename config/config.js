@@ -69,7 +69,7 @@ let config = {
     twitch: 'https://www.flickr.com/photos/futurolan',
     youtube: 'https://twitch.tv/gamers_assembly',
     flickr: 'https://www.youtube.com/channel/UCbfhRIAsc4xdRACnDUwRfRw',
-    discord: 'https://discord.gg/eW7AWys'
+    discord: 'https://discordapp.com/invite/gamersassembly'
   }
 }
 

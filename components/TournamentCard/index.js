@@ -13,7 +13,7 @@ const TournamentCard = (props) => (
     <div className='ribbon  is-size-6 has-text-white'><Platform platform={props.platform} /> </div>
 
     <Link as={props.url ? props.url : `/tournois-single?nid=${props.nid}`} href={{ pathname: '/tournois-single', query: { nid: props.nid } }}>
-      <div>
+      <a className='has-text-dark'>
         <div className='card-image'>
           <figure className='image is-2by1'>
             <img
@@ -32,7 +32,7 @@ const TournamentCard = (props) => (
             <TournamentSlotProgress size={props.size} current={props.current} />
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   </div>
 )

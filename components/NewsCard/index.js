@@ -9,7 +9,7 @@ const NewsCard = (props) => (
   <div className='ga-news-card card has-ribbon is-shadowless'>
     <div className='ribbon  is-size-7'><Moment unix format='DD/MM/YYYY'>{props.created}</Moment></div>
     <Link as={props.url ? props.url : `/news-single?nid=${props.nid}`} href={{ pathname: '/news-single', query: { nid: props.nid } }}>
-      <div>
+      <a className='has-text-dark'>
         <div className='card-image'>
           <figure className='image is-2by1'>
             <img
@@ -24,7 +24,7 @@ const NewsCard = (props) => (
             {props.title}
           </div>
         </div>
-      </div>
+      </a>
     </Link>
   </div>
 )
