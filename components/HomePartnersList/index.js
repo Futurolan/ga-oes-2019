@@ -20,7 +20,7 @@ function HomePartnersList ({ data: { loading, error, nodeQuery } }) {
       </section>
     </div>
   }
-  return <div className='notification'>Chargement des tournois en cours.</div>
+  return <div className='notification'>Chargement des partenaires en cours.</div>
 }
 
 export const partners = gql`
