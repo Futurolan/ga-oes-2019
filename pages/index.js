@@ -22,7 +22,7 @@ class HomePage extends React.Component {
           <TwitchCarouselActivator />
           <HomeInfoBlocks />
           <HomeNewsList />
-          {config.home.partners && <HomePartnersList />}
+          {config.home.partners && config.home.partners.active && <HomePartnersList />}
         </div>
       </Layout>
     )

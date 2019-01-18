@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PartnerLogo from '../PartnerLogo'
+
+import PartnerLogo from 'components/PartnerLogo'
+
+import config from 'config/config'
 
 class PartnerCarousel extends React.Component {
   constructor (props) {
@@ -11,15 +14,15 @@ class PartnerCarousel extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({ partners: this.props.partners.slice(0, 6) })
-    if (this.props.partners.length > 6) {
-      setTimeout(this.randomizePartner, 10000)
+    this.setState({ partners: this.props.partners.slice(0, config.home.partners.count) })
+    if (this.props.partners.length > config.home.partners.count) {
+      setTimeout(this.randomizePartner, config.home.partners.delay * 1000)
     }
   }
 
   randomizePartner () {
-    this.setState({ partners: this._shuffle(this.props.partners).slice(0, 6) })
-    setTimeout(this.randomizePartner, 10000)
+    this.setState({ partners: this._shuffle(this.props.partners).slice(0, config.home.partners.count) })
+    setTimeout(this.randomizePartner, config.home.partners.delay * 1000)
   }
 
   _shuffle ([...arr]) {

@@ -16,7 +16,11 @@ let config = {
     },
     banner: '/static/img/bg-banner-al2018.jpg',
     twitterAccount: 'GamersAssembly',
-    partners: true
+    partners: {
+      active: true,
+      delay: 10,
+      count: 6
+    }
   },
   news: {
     active: true,
