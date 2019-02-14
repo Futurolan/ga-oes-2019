@@ -28,31 +28,31 @@ function TicketContent ({ data: { loading, error, node } }) {
           </div>
         </div>
         <div className='column is-12 is-4-desktop'>
-          {node.url2 && <div className='box content'>
-            <h2 className='title is-size-5'>Pass "Manager/Accompagnateur"</h2>
+          {node.url2 && config.tickets.pass && <div className='box content'>
+            <h2 className='title is-size-5'>{config.tickets.pass.title}</h2>
             <p>
-              Pour obtenir des pass "Manager/Accompagnateur", les équipes inscrites aux tournois peuvent réaliser une demande via le lien ci-dessous.
+              {config.tickets.pass.text}
             </p>
             <div className='has-text-centered'>
-              <a target='_blank' href={node.url2}><button className='button is-primary is-fullwidth'>Obtenir un pass</button></a>
+              <a target='_blank' href={node.url2}><button className='button is-primary is-fullwidth'>{config.tickets.pass.button}</button></a>
             </div>
           </div>}
-          {node.minor && <div className='box content'>
-            <h2 className='title is-size-5'>Informations pour les mineurs</h2>
+          {node.minor && config.tickets.minor && <div className='box content'>
+            <h2 className='title is-size-5'>{config.tickets.minor.title}</h2>
             <p>
-              Vous devez télécharger l'autorisation parentale, l'imprimer, la remplir et l'apporter le jour de votre venue avec votre billet.
+              {config.tickets.minor.text}
             </p>
             <div className='has-text-centered'>
-              <a target='_blank' href={node.minor.file.url}><button className='button is-primary is-fullwidth'>Télécharger l'autorisation parentale (format pdf)</button></a>
+              <a target='_blank' href={node.minor.file.url}><button className='button is-primary is-fullwidth'>{config.tickets.minor.button}</button></a>
             </div>
           </div>}
-          {node.rules && <div className='box content'>
-            <h2 className='title is-size-5'>Règlement intérieur</h2>
+          {node.rules && config.tickets.rules && <div className='box content'>
+            <h2 className='title is-size-5'>{config.tickets.rules.title}</h2>
             <p>
-            L'acquisition d'un ticket entraîne l'adhésion au règlement intérieur disponible ci-dessous.
+              {config.tickets.rules.text}
             </p>
             <div className='has-text-centered'>
-              <a target='_blank' href={node.rules.file.url}><button className='button is-primary is-fullwidth'>Télécharger le règlement intérieur (format pdf)</button></a>
+              <a target='_blank' href={node.rules.file.url}><button className='button is-primary is-fullwidth'>{config.tickets.rules.button}</button></a>
             </div>
           </div>}
         </div>
