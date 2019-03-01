@@ -24,14 +24,6 @@ function WeezeventPlayerList ({ size, reservedSlot, data: { loading, error, node
       </p>
       <table className='table is-fullwidth'>
         <tbody>
-          {[...Array(reservedSlot)].map((x, index) =>
-            <tr key={`reserved${index}`}>
-              <td>
-                <i className='fas fa-lock' />&nbsp;&nbsp;Slot réservé
-              </td>
-              <td />
-            </tr>
-          )}
           {dataWeezevent.type === 'team' && dataWeezevent.data.map((object, index) => (
             <tr key={index}>
               <td>
@@ -52,6 +44,14 @@ function WeezeventPlayerList ({ size, reservedSlot, data: { loading, error, node
               </td>
             </tr>
           ))}
+          {[...Array(reservedSlot)].map((x, index) =>
+            <tr key={`reserved${index}`}>
+              <td>
+                <i className='fas fa-lock' />&nbsp;&nbsp;Slot réservé
+              </td>
+              <td />
+            </tr>
+          )}
           {/* {[...Array(size - reservedSlot - countWeezevent > 0 ? size - reservedSlot - countWeezevent : 0)].map((x, index) => */}
           {/* <tr key={`free${index}`}> */}
           {/* <td ><i className='fas fa-lock-open' />&nbsp;&nbsp;Slot libre</td> */}
