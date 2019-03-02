@@ -23,28 +23,18 @@ let config = {
     }
   },
   news: {
-    active: true,
     title: 'Actualités',
     description: 'Retrouvez toutes les actualités de la Gamers Assembly'
   },
-  recruit: {
-    active: true,
-    title: 'Recrutement',
-    description: 'Devenir bénévole pour la GAMERS ASSEMBLY, c\'est par ici !!!',
-    formUrl: 'https://goo.gl/forms/84pHQfSp50RcuUel2'
-  },
   partners: {
-    active: true,
     title: 'Partenaires',
     description: 'Retrouvez la liste de tous nos partenaires'
   },
   tournaments: {
-    active: true,
     title: 'Tournois',
     description: 'Tous les tournois de la Gamers Assembly'
   },
   info: {
-    active: true,
     title: 'Informations pratiques',
     description: 'Toutes les informations sur cet évènement'
   },
@@ -82,6 +72,12 @@ let config = {
   legals: {
     active: true,
     pageId: 8
+  },
+  recruit: {
+    active: true,
+    title: 'Recrutement',
+    description: 'Devenir bénévole pour la GAMERS ASSEMBLY, c\'est par ici !!!',
+    formUrl: 'https://goo.gl/forms/84pHQfSp50RcuUel2'
   },
   social: {
     twitter: 'https://twitter.com/GamersAssembly',

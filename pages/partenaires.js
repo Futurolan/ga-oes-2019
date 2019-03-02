@@ -1,5 +1,4 @@
 import React from 'react'
-import ErrorPage from 'next/error'
 
 import Layout from 'components/Layout'
 import Meta from 'components/Meta'
@@ -9,9 +8,6 @@ import config from 'config/config'
 
 class PartenairesPage extends React.Component {
   render () {
-    if (config.partners.active !== true) {
-      return <ErrorPage statusCode={404} />
-    }
     return (
       <Layout name='partenaires-page has-bg-star'>
         <div className='section has-bg-star'>
