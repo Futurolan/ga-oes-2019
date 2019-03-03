@@ -67,9 +67,9 @@ class Header extends React.Component {
     if (item.type === 'page') {
       if (item.link === undefined || item.id === undefined || item.title === undefined) return null
       if (item.children) {
-        return this.generateDropDown(<ActiveLink label={item.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.nid } }} />, item, index)
+        return this.generateDropDown(<ActiveLink label={item.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.id } }} />, item, index)
       } else {
-        return <ActiveLink key={index} label={item.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.nid } }} />
+        return <ActiveLink key={index} label={item.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.id } }} />
       }
     }
 
