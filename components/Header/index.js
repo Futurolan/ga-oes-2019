@@ -42,9 +42,9 @@ class Header extends React.Component {
 
       if (item.id === 'news' || item.id === 'tournaments' || item.id === 'info' || item.id === 'partners') {
         if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config[item.id].title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={config[item.id].link} />, item, index)
+          return this.generateDropDown(<ActiveLink label={config[item.id].title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />, item, index)
         } else {
-          return <ActiveLink key={index} label={config[item.id].title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={config[item.id].link} />
+          return <ActiveLink key={index} label={config[item.id].title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />
         }
       }
       if (item.id === 'live') {
@@ -67,9 +67,9 @@ class Header extends React.Component {
     if (item.type === 'page') {
       if (item.link === undefined || item.id === undefined || item.title === undefined) return null
       if (item.children) {
-        return this.generateDropDown(<ActiveLink label={item.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={item.link} />, item, index)
+        return this.generateDropDown(<ActiveLink label={item.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.nid } }} />, item, index)
       } else {
-        return <ActiveLink key={index} label={item.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={item.link} />
+        return <ActiveLink key={index} label={item.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.nid } }} />
       }
     }
 
