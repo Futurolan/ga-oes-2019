@@ -49,7 +49,7 @@ function HomeNewsList ({
                   </div>
                 ))}
               </div>
-              <Link href={'/news'} ><a className='button is-primary is-medium' >Voir plus d'actualités</a></Link>
+              <Link href={config.news.link} ><a className='button is-primary is-medium' >Voir plus d'actualités</a></Link>
             </div>
             <div className='column is-5-desktop is-12-tablet'>
               <h2 className='title title-line has-text-centered is-size-5 is-uppercase'><span>Twitter</span></h2>

@@ -5,6 +5,8 @@ import getConfig from 'next/config'
 
 import TwitchPlayer from 'components/TwitchPlayer'
 
+import config from 'config/config'
+
 import './styles.scss'
 
 const { publicRuntimeConfig } = getConfig()
@@ -72,7 +74,7 @@ class TwitchCarousel extends React.Component {
           {this.state.channelList.length >= 2 && <div className='previous' onClick={this.handlePreviousClick}><i className='fas fa-angle-left' /></div>}
         </div>
         <div className='ga-twitch-carousel-button has-text-centered'>
-          <Link href={'/live'}>
+          <Link href={config.live.link}>
             <a className='button is-primary is-medium'>
               Voir la page live
             </a>

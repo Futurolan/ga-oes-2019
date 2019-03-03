@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import PropTypes from 'prop-types'
 
+import config from 'config/config'
 const { publicRuntimeConfig } = getConfig()
 
 function TicketButton ({ data: { loading, error, node } }) {
@@ -16,7 +17,7 @@ function TicketButton ({ data: { loading, error, node } }) {
   if (node && node.url) {
     return <div className='panel ga-ticket-button'>
       <div className='button is-primary is-fullwidth is-large'>
-        <Link href='/billetterie'>
+        <Link href={config.live.link}>
           <a className='has-text-white'>Accéder à la billetterie</a>
         </Link>
       </div>
