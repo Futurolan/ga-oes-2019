@@ -10,16 +10,14 @@ import config from 'config/config'
 
 const { publicRuntimeConfig } = getConfig()
 
-function LiveMenu ({ data: { loading, error, node } }) {
+function LiveMenu ({ className, data: { loading, error, node } }) {
   if (error) {
     console.log(error)
     return null
   }
 
   if (node && node.livemode) {
-    return <div className='navbar-item ga-live-menu is-uppercase has-text-weight-bold'>
-      <ActiveLink label={config.live.title} className='has-text-white' path='/live' />
-    </div>
+    return <ActiveLink label={config.live.title} className={`ga-live-menu ${className}`} path={config.live.link} />
   } else { return null }
 }
 
@@ -34,7 +32,8 @@ query{
 `
 
 LiveMenu.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  className: PropTypes.string
 }
 
 export default graphql(edition)(LiveMenu)

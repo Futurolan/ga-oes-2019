@@ -1,5 +1,4 @@
 import React from 'react'
-import ErrorPage from 'next/error'
 
 import Layout from 'components/Layout'
 import NewsList from 'components/NewsList'
@@ -9,10 +8,6 @@ import config from 'config/config'
 
 class NewsPage extends React.Component {
   render () {
-    if (config.news.active !== true) {
-      return <ErrorPage statusCode={404} />
-    }
-
     return (
       <Layout name='news-page has-bg-star'>
         <div className='section has-bg-star'>

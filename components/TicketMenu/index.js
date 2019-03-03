@@ -10,16 +10,14 @@ import config from 'config/config'
 
 const { publicRuntimeConfig } = getConfig()
 
-function TicketMenu ({ data: { loading, error, node } }) {
+function TicketMenu ({ className, data: { loading, error, node } }) {
   if (error) {
     console.log(error)
     return null
   }
 
   if (node && node.url) {
-    return <div className='navbar-item ga-ticket-menu is-uppercase has-text-weight-bold'>
-      <ActiveLink label={config.tickets.title} className='has-text-white' path='/billetterie' />
-    </div>
+    return <ActiveLink label={config.tickets.title} className={`ga-ticket-menu ${className}`} path={config.tickets.link} />
   } else { return null }
 }
 
@@ -34,7 +32,8 @@ query{
 `
 
 TicketMenu.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  className: PropTypes.string
 }
 
 export default graphql(edition)(TicketMenu)
