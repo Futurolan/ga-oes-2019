@@ -9,10 +9,10 @@ const menu = [
       { type: 'config', id: 'tournaments' },
       { type: 'config', id: 'live' },
       { type: 'config', id: 'live' },
-      { type: 'page', title: 'Une page', id: 4, link: '/test' },
+      { type: 'page', title: 'Une page', id: 6, link: '/test' },
       { type: 'config', id: 'live' },
       { type: 'config', id: 'live' },
-      { type: 'page', title: 'Une page encore', id: 4, link: '/tesat2' }
+      { type: 'page', title: 'Une page encore', id: 7, link: '/urlquelonveut' }
     ] },
   { type: 'config', id: 'partners' }
 ]

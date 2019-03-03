@@ -24,27 +24,33 @@ let config = {
   },
   news: {
     title: 'Actualités',
-    description: 'Retrouvez toutes les actualités de la Gamers Assembly'
+    description: 'Retrouvez toutes les actualités de la Gamers Assembly',
+    link: '/news'
   },
   partners: {
     title: 'Partenaires',
-    description: 'Retrouvez la liste de tous nos partenaires'
+    description: 'Retrouvez la liste de tous nos partenaires',
+    link: '/partenaires'
   },
   tournaments: {
     title: 'Tournois',
-    description: 'Tous les tournois de la Gamers Assembly'
+    description: 'Tous les tournois de la Gamers Assembly',
+    link: '/tournois'
   },
   info: {
     title: 'Informations pratiques',
-    description: 'Toutes les informations sur cet évènement'
+    description: 'Toutes les informations sur cet évènement',
+    link: '/infos'
   },
   live: {
     title: 'Live',
-    description: 'Tous les streams et résultats en direct'
+    description: 'Tous les streams et résultats en direct',
+    link: '/live'
   },
   tickets: {
     title: 'Billetterie',
     description: 'Achetez vos places pour la Gamers Assembly',
+    link: '/billetterie',
     pass: {
       title: 'Pass "Manager/Accompagnateur"',
       text: 'Pour obtenir des pass "Manager/Accompagnateur", les équipes inscrites aux tournois peuvent réaliser une demande via le lien ci-dessous.',

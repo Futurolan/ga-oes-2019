@@ -40,11 +40,11 @@ class Header extends React.Component {
     if (item.type === 'config') {
       if (item.id === undefined) return null
 
-      if (item.id === 'news') {
+      if (item.id === 'news' || item.id === 'tournaments' || item.id === 'info' || item.id === 'partners') {
         if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config.news.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path='/news' />, item, index)
+          return this.generateDropDown(<ActiveLink label={config[item.id].title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={config[item.id].link} />, item, index)
         } else {
-          return <ActiveLink key={index} label={config.news.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path='/news' />
+          return <ActiveLink key={index} label={config[item.id].title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={config[item.id].link} />
         }
       }
       if (item.id === 'live') {
@@ -61,28 +61,6 @@ class Header extends React.Component {
           return <TicketMenu key={index} className='navbar-item has-text-white is-uppercase has-text-weight-bold' />
         }
       }
-      if (item.id === 'tournaments') {
-        if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config.tournaments.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path='/tournois' />, item, index)
-        } else {
-          return <ActiveLink key={index} label={config.tournaments.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path='/tournois' />
-        }
-      }
-      if (item.id === 'info') {
-        if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config.info.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path='/infos' />, item, index)
-        } else {
-          return <ActiveLink key={index} label={config.info.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path='/infos' />
-        }
-      }
-      if (item.id === 'partners') {
-        if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config.partners.title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path='/partenaires' />, item, index)
-        } else {
-          return <ActiveLink key={index} label={config.partners.title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path='/partenaires' />
-        }
-      }
-
       return null
     }
 

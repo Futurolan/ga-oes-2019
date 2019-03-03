@@ -24,8 +24,6 @@ for (const index in menu) {
   }
 }
 
-const routeMap = { news: 'news', live: 'live', tickets: 'billetterie', tournaments: 'tournois', info: 'infos', partners: 'partenaires' }
-
 const sitemap = sm.createSitemap({
   hostname: process.env.BASE_URL,
   cacheTime: 600000,
@@ -39,8 +37,8 @@ for (const index in flatMenu) {
   if (item.type === 'page' && item.link !== undefined && item.id !== undefined && item.title !== undefined) {
     sitemap.add({ url: item.link, changefreq: 'monthly', priority: 0.9 })
   }
-  if (item.type === 'config' && routeMap[item.id] !== undefined) {
-    sitemap.add({ url: `/${routeMap[item.id]}`, changefreq: 'monthly', priority: 0.9 })
+  if (item.type === 'config' && config[item.id] !== undefined && config[item.id].link !== undefined) {
+    sitemap.add({ url: `/${config[item.id].link}`, changefreq: 'monthly', priority: 0.9 })
   }
 }
 
@@ -188,6 +186,9 @@ app.prepare()
         const item = flatMenu[index]
         if (item.type === 'page' && item.id !== undefined && item.link !== undefined && req.url.indexOf(item.link) === 0) {
           return app.render(req, res, `/page`, { nid: item.id })
+        }
+        if (item.type === 'config' && item.id !== undefined && config[item.id] !== undefined && config[item.id].link !== undefined && req.url.indexOf(config[item.id].link) === 0) {
+          return app.render(req, res, `/${item.id}`)
         }
       }
 
