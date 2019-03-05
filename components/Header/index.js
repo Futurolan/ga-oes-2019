@@ -40,28 +40,26 @@ class Header extends React.Component {
     if (item.type === 'config') {
       if (item.id === undefined) return null
 
-      if (item.id === 'news' || item.id === 'tournaments' || item.id === 'info' || item.id === 'partners') {
-        if (item.children) {
-          return this.generateDropDown(<ActiveLink label={config[item.id].title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />, item, index)
-        } else {
-          return <ActiveLink key={index} label={config[item.id].title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />
-        }
+      switch (item.id) {
+        case 'live':
+          if (item.children) {
+            return this.generateDropDown(<LiveMenu className='navbar-link has-text-white is-uppercase has-text-weight-bold' />, item, index)
+          } else {
+            return <LiveMenu key={index} className='navbar-item has-text-white is-uppercase has-text-weight-bold' />
+          }
+        case 'tickets':
+          if (item.children) {
+            return this.generateDropDown(<TicketMenu className='navbar-link has-text-white is-uppercase has-text-weight-bold' />, item, index)
+          } else {
+            return <TicketMenu key={index} className='navbar-item has-text-white is-uppercase has-text-weight-bold' />
+          }
+        default:
+          if (item.children) {
+            return this.generateDropDown(<ActiveLink label={config[item.id].title} className='navbar-link has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />, item, index)
+          } else {
+            return <ActiveLink key={index} label={config[item.id].title} className='navbar-item has-text-white is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />
+          }
       }
-      if (item.id === 'live') {
-        if (item.children) {
-          return this.generateDropDown(<LiveMenu className='navbar-link has-text-white is-uppercase has-text-weight-bold' />, item, index)
-        } else {
-          return <LiveMenu key={index} className='navbar-item has-text-white is-uppercase has-text-weight-bold' />
-        }
-      }
-      if (item.id === 'tickets') {
-        if (item.children) {
-          return this.generateDropDown(<TicketMenu className='navbar-link has-text-white is-uppercase has-text-weight-bold' />, item, index)
-        } else {
-          return <TicketMenu key={index} className='navbar-item has-text-white is-uppercase has-text-weight-bold' />
-        }
-      }
-      return null
     }
 
     if (item.type === 'page') {
