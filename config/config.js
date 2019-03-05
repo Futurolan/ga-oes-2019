@@ -67,6 +67,11 @@ let config = {
       button: 'Télécharger le règlement intérieur (format pdf)'
     }
   },
+  exhibitors: {
+    title: 'Exposants',
+    description: 'Les exposants que vous pourrez retrouver à la Gamers Assembly',
+    link: '/exposants'
+  },
   contact: {
     active: true,
     pageId: 6
