@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from 'components/Layout'
-import ExhibitorsList from 'components/ExhibitorsList'
+import ExhibitorList from 'components/ExhibitorList'
 import Meta from 'components/Meta'
 
 import config from 'config/config'
@@ -14,7 +14,7 @@ class ExhibitorsPage extends React.Component {
           <Meta title={config.exhibitors.title} description={config.exhibitors.description} />
           <div className='container'>
             <h1 className='title title-line has-text-centered'><span>{config.exhibitors.title}</span></h1>
-            <ExhibitorsList />
+            <ExhibitorList />
           </div>
         </section>
       </Layout>
