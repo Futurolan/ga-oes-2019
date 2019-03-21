@@ -9,12 +9,12 @@ let config = {
     url: 'https://www.laregion.fr/'
   },
   home: {
-    hero: {
-      title: '',
-      subtitle: '',
-      background: '/static/img/oes.jpg'
-    },
-    /* banner: '/static/img/bg-banner-al2018.jpg', */
+    // hero: {
+    //   title: '',
+    //   subtitle: '',
+    //   background: '/static/img/oes.jpg'
+    // },
+    banner: '/static/img/oes.jpg',
     twitterAccount: 'OccitanieEsport',
     partners: {
       active: false,
@@ -27,11 +27,11 @@ let config = {
     description: 'Retrouvez toutes les actualités de la Gamers Assembly Occitanie Edition',
     link: '/news'
   },
-  partners: {
-    title: 'Partenaires',
-    description: 'Retrouvez la liste de tous nos partenaires',
-    link: '/partenaires'
-  },
+  // partners: {
+  //   title: 'Partenaires',
+  //   description: 'Retrouvez la liste de tous nos partenaires',
+  //   link: '/partenaires'
+  // },
   tournaments: {
     title: 'Tournois',
     description: 'Tous les tournois de la Gamers Assembly Occitanie Edition',
