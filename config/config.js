@@ -1,8 +1,8 @@
 let config = {
   title: 'Gamers Assembly : Occitanie Edition',
-  logo: `/static/img/logo-oes-130x100.png`,
-  description: 'Retrouvez la Gamers Assembly Occitanie Edition très prochainement',
-  metaImagePath: `/static/img/logo-oes-130x100.png`,
+  logo: `/static/img/logo_ga_oes.png`,
+  description: 'La Gamers Assembly Occitanie Edition aura lieu de 21 au 23 juin 2019 !',
+  metaImagePath: `/static/img/logo_ga_oes.png`,
   gaTrackingId: 'UA-128777022-6',
   mainPartner: {
     logo: '/static/img/logo-occitanie-238x106.png',
@@ -12,7 +12,7 @@ let config = {
     hero: {
       title: 'Gamers Assembly',
       subtitle: 'Occitanie Edition 2019',
-      background: '/static/img/bg-red-area.jpg'
+      background: '/static/img/oes.jpg'
     },
     /* banner: '/static/img/bg-banner-al2018.jpg', */
     twitterAccount: 'OccitanieEsport',
@@ -91,8 +91,8 @@ let config = {
     formUrl: 'https://goo.gl/forms/84pHQfSp50RcuUel2'
   },
   social: {
-    twitter: 'https://twitter.com/OccitanieEsport',
-    facebook: 'https://www.facebook.com/OccitanieEsports',
+    twitter: 'https://twitter.com/GamersAssembly',
+    facebook: 'https://www.facebook.com/GamersAssembly',
     twitch: 'https://www.flickr.com/photos/futurolan',
     youtube: 'https://twitch.tv/gamers_assembly',
     flickr: 'https://www.youtube.com/channel/UCbfhRIAsc4xdRACnDUwRfRw',
