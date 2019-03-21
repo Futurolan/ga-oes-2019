@@ -27,11 +27,11 @@ let config = {
     description: 'Retrouvez toutes les actualités de la Gamers Assembly Occitanie Edition',
     link: '/news'
   },
-  // partners: {
-  //   title: 'Partenaires',
-  //   description: 'Retrouvez la liste de tous nos partenaires',
-  //   link: '/partenaires'
-  // },
+  partners: {
+    title: 'Partenaires',
+    description: 'Retrouvez la liste de tous nos partenaires',
+    link: '/partenaires'
+  },
   tournaments: {
     title: 'Tournois',
     description: 'Tous les tournois de la Gamers Assembly Occitanie Edition',
