@@ -51,11 +51,11 @@ let config = {
     title: 'Billetterie',
     description: 'Achetez vos places pour la Gamers Assembly Occitanie Edition',
     link: '/billetterie',
-    /* pass: {
+    pass: {
       title: 'Pass "Manager/Accompagnateur"',
       text: 'Pour obtenir des pass "Manager/Accompagnateur", les équipes inscrites aux tournois peuvent réaliser une demande via le lien ci-dessous.',
       button: 'Obtenir un pass'
-    },*/
+    },
     minor: {
       title: 'Informations pour les mineurs',
       text: 'Vous devez télécharger l\'autorisation parentale, l\'imprimer, la remplir et l\'apporter le jour de votre venue avec votre billet.',
