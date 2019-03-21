@@ -10,8 +10,8 @@ let config = {
   },
   home: {
     hero: {
-      title: 'Gamers Assembly',
-      subtitle: 'Occitanie Edition 2019',
+      title: '',
+      subtitle: '',
       background: '/static/img/oes.jpg'
     },
     /* banner: '/static/img/bg-banner-al2018.jpg', */
