@@ -38,7 +38,7 @@ let config = {
     link: '/tournois'
   },
   info: {
-    title: 'Informations pratiques',
+    title: 'Infos pratiques',
     description: 'Toutes les informations sur la Gamers Assembly Occitanie Edition',
     link: '/infos'
   },
