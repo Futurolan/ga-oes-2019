@@ -52,9 +52,9 @@ let config = {
     description: 'Achetez vos places pour la Gamers Assembly Occitanie Edition',
     link: '/billetterie',
     pass: {
-      title: 'Pass "Manager/Accompagnateur"',
-      text: 'Pour obtenir des pass "Manager/Accompagnateur", les équipes inscrites aux tournois peuvent réaliser une demande via le lien ci-dessous.',
-      button: 'Obtenir un pass'
+      title: 'Pass Visiteur',
+      text: 'Pour acheter un pass "Visiteur Occitanie Esports" ou un pass "Visiteur ESL Pro League Occitanie", suivre le lien ci-dessous',
+      button: 'Acheter un billet visiteur'
     },
     minor: {
       title: 'Informations pour les mineurs',
