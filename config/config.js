@@ -93,9 +93,9 @@ let config = {
   social: {
     twitter: 'https://twitter.com/GamersAssembly',
     facebook: 'https://www.facebook.com/GamersAssembly',
-    twitch: 'https://www.flickr.com/photos/futurolan',
-    youtube: 'https://twitch.tv/gamers_assembly',
-    flickr: 'https://www.youtube.com/channel/UCbfhRIAsc4xdRACnDUwRfRw',
+    twitch: 'https://twitch.tv/gamers_assembly',
+    youtube: 'https://www.youtube.com/channel/UCbfhRIAsc4xdRACnDUwRfRw',
+    flickr: 'https://www.flickr.com/photos/futurolan',
     discord: 'https://discordapp.com/invite/gamersassembly'
   }
 }
