@@ -6,6 +6,7 @@ const menu = [
     title: 'Infos',
     children: [
       { type: 'config', id: 'info' },
+      { type: 'external', title: 'Location', link: 'https://scoup-esport.fr/reservation/' },
       { type: 'page', title: 'Cosplay', id: 3569, link: '/cosplay' },
       { type: 'page', title: 'Région Occitanie', id: 3575, link: '/region' }
     ] },
