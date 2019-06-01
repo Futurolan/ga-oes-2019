@@ -1,8 +1,8 @@
 let config = {
   title: 'Gamers Assembly : Occitanie Edition',
-  logo: `/static/img/blason2-100x100.png`,
+  logo: `/static/img/logo_ga_oes.png`,
   description: 'La Gamers Assembly Occitanie Edition aura lieu de 21 au 23 juin 2019 !',
-  metaImagePath: `/static/img/blason2-100x100.png`,
+  metaImagePath: `/static/img/logo_ga_oes.png`,
   gaTrackingId: 'UA-128777022-6',
   mainPartner: {
     logo: '/static/img/logo-occitanie-238x106.png',
@@ -14,7 +14,7 @@ let config = {
     //   subtitle: '',
     //   background: '/static/img/oes.jpg'
     // },
-    banner: '/static/img/banner.jpg',
+    banner: '/static/img/oes.jpg',
     twitterAccount: 'OccitanieEsport',
     partners: {
       active: true,
