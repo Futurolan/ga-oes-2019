@@ -77,7 +77,7 @@ let config = {
     description: 'Les exposants que vous pourrez retrouver à la Gamers Assembly Occitanie Edition',
     link: '/exposants'
   },
-    family: {
+  family: {
     title: 'Espace Famille',
     description: 'Les activités à faire en famille durant la Gamers Assembly Occitanie Edition',
     link: '/espace-famille'
