@@ -17,7 +17,7 @@ let config = {
     banner: '/static/img/banner.jpg',
     twitterAccount: 'OccitanieEsport',
     partners: {
-      active: false,
+      active: true,
       delay: 10,
       count: 6
     }
