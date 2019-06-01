@@ -1,8 +1,8 @@
 let config = {
   title: 'Gamers Assembly : Occitanie Edition',
-  logo: `/static/img/logo_ga_oes.png`,
+  logo: `/static/img/blason2-100x100.png`,
   description: 'La Gamers Assembly Occitanie Edition aura lieu de 21 au 23 juin 2019 !',
-  metaImagePath: `/static/img/logo_ga_oes.png`,
+  metaImagePath: `/static/img/blason2-100x100.png`,
   gaTrackingId: 'UA-128777022-6',
   mainPartner: {
     logo: '/static/img/logo-occitanie-238x106.png',
@@ -14,7 +14,7 @@ let config = {
     //   subtitle: '',
     //   background: '/static/img/oes.jpg'
     // },
-    banner: '/static/img/oes.jpg',
+    banner: '/static/img/banner.jpg',
     twitterAccount: 'OccitanieEsport',
     partners: {
       active: false,
@@ -41,6 +41,11 @@ let config = {
     title: 'Infos pratiques',
     description: 'Toutes les informations sur la Gamers Assembly Occitanie Edition',
     link: '/infos'
+  },
+  schedule: {
+    title: 'Programme',
+    description: 'Le programme heure par heure pour tout l\'évènement',
+    link: '/schedule'
   },
   live: {
     title: 'Live',
@@ -71,6 +76,16 @@ let config = {
     title: 'Exposants',
     description: 'Les exposants que vous pourrez retrouver à la Gamers Assembly Occitanie Edition',
     link: '/exposants'
+  },
+    family: {
+    title: 'Espace Famille',
+    description: 'Les activités à faire en famille durant la Gamers Assembly Occitanie Edition',
+    link: '/espace-famille'
+  },
+  influencers: {
+    title: 'VIPs',
+    description: 'Les personnalités qui seront présentes pour la Gamers Assembly Occitanie Edition',
+    link: '/vips'
   },
   contact: {
     active: true,
