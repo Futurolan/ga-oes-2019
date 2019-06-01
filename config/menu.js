@@ -10,7 +10,7 @@ const menu = [
       { type: 'page', title: 'Cosplay', id: 3569, link: '/cosplay' },
       { type: 'page', title: 'Région Occitanie', id: 3575, link: '/region' }
     ] },
-  { type: 'external', title: 'ESL Pro League', link: 'https://pro.eslgaming.com/occitanie/' },
+  //  { type: 'external', title: 'ESL Pro League', link: 'https://pro.eslgaming.com/occitanie/' },
   { type: 'config', id: 'partners' }
 ]
 
